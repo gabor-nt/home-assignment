@@ -1,0 +1,5 @@
+Added timeout to mp3 fetching to keep the service usable
+The parser code should be improved
+The whole setup and testing would be nicer with inversion of control
+The folder structure could be improved, when a pattern emerges
+Integration test could be improved with axios mock adapter
