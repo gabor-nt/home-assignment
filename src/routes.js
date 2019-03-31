@@ -1,15 +1,17 @@
 const router = require("express").Router();
 const httpClient = require("./httpClient");
-const parse = require("./acastParser").create(url => url.length);
+const checksumCalc = require("./fakeChecksumCalc");
+const parser = require("./acastParser").create(checksumCalc);
 
 router.post("/parse-rss", async (req, res, next) => {
   try {
     const rss = await httpClient.getXml(req.body.url);
-    const episodes = await parse(rss);
+    const episodes = await parser.parse(rss);
     res.status(200).send(episodes);
   } catch (e) {
     console.log(e);
-    res.status(400).send("Bad input!");
+    if (e.message && e.code) res.status(e.code).send(e.message);
+    else next(e);
   }
 });
 
