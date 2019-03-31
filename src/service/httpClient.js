@@ -12,3 +12,13 @@ module.exports.getXml = async url => {
     throw errors.createBadUrlError(url);
   }
 };
+
+module.exports.getBlob = async url => {
+  try {
+    const validUrl = new URL(url);
+    const response = await axios.get(url, { responseType: "arraybuffer" });
+    return response.data;
+  } catch (e) {
+    throw errors.createBadUrlError(url);
+  }
+};

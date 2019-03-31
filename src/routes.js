@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const httpClient = require("./service/httpClient");
-const checksumCalc = require("./service/fakeChecksumCalc");
-const parser = require("./service/acastParser").create(checksumCalc);
+const sha1Sum = require("./service/shaChecksum");
+const parser = require("./service/acastParser").create(sha1Sum);
 
 router.post("/parse-rss", async (req, res, next) => {
   try {
