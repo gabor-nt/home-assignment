@@ -1,9 +1,10 @@
 const axios = require("axios");
-axios.defaults.adapter = require('axios/lib/adapters/http')
+axios.defaults.adapter = require("axios/lib/adapters/http");
 
 describe("app", () => {
   it("returns hello tests", async () => {
-    const response = await axios.get("http://localhost:8080/");
-    expect(response.data).toEqual({"hello": "test"});
+    const requestData = { url: "https://rss.acast.com/varvet" };
+    const response = await axios.post("http://localhost:8080/parse-rss", requestData);
+    expect(response.data).toEqual({ hello: requestData.url });
   });
 });
