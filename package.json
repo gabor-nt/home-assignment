@@ -1,0 +1,14 @@
+{
+  "name": "acast-home-assignment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Gábor Takács <gabor.n.takacs@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {"start": "node src/index.js"},
+  "dependencies": {
+    "eslint": "^5.16.0",
+    "express": "^4.16.4",
+    "prettier": "^1.16.4"
+  }
+}
