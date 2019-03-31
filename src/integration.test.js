@@ -27,7 +27,7 @@ describe("app", () => {
     expect(response.data).toBe("Unexpected rss format");
   });
 
-  it.skip("returns expected number of records for valid url", async () => {
+  it("returns expected number of records for valid url", async () => {
     const requestData = { url: "https://rss.acast.com/varvet" };
     const response = await axios.post(localServer, requestData);
     expect(response.data.length).toBe(458);

@@ -9,6 +9,7 @@ module.exports.getXml = async url => {
     });
     return response.data;
   } catch (e) {
+    console.log("Failed to get xml from", url);
     throw errors.createBadUrlError(url);
   }
 };
@@ -16,9 +17,13 @@ module.exports.getXml = async url => {
 module.exports.getBlob = async url => {
   try {
     const validUrl = new URL(url);
-    const response = await axios.get(url, { responseType: "arraybuffer" });
+    const response = await axios.get(validUrl.href, {
+      responseType: "arraybuffer",
+      timeout: 500
+    });
     return response.data;
   } catch (e) {
+    console.log("Failed to get blob from", url);
     throw errors.createBadUrlError(url);
   }
 };
