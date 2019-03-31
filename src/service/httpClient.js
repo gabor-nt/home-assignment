@@ -1,5 +1,5 @@
 const axios = require("axios");
-const errors = require("./errors");
+const errors = require("../errors");
 
 module.exports.getXml = async url => {
   try {

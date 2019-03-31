@@ -1,5 +1,5 @@
 const parser = require("xml2js");
-const errors = require("./errors");
+const errors = require("../errors");
 
 module.exports.create = checksumCalc => ({
   parse: async rss =>

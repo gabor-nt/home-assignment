@@ -1,5 +1,5 @@
 const acastParserFactory = require("./acastParser");
-const errors = require("./errors");
+const errors = require("../errors");
 
 describe("acastParser", () => {
   it("can handle example", async () => {
