@@ -15,9 +15,14 @@ describe("app", () => {
     expect(response.statusText).toBe("Bad Request");
   });
 
-  it("returns xml for valid url", async () => {
+  it("returns expected number of records for valid url", async () => {
     const requestData = { url: "https://rss.acast.com/varvet" };
     const response = await axios.post(localServer, requestData);
-    expect(response.data).toEqual({ hello: "xml" });
+    expect(response.data.length).toBe(458);
+    expect(response.data[42]).toEqual({
+      checksum: 57,
+      title: "RV18: Filip Hammar",
+      url: "https://media.acast.com/varvet/rv18-filiphammar/media.mp3"
+    });
   });
 });
