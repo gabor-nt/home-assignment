@@ -6,5 +6,5 @@ var server = app.listen(8080, function() {
 });
 
 app.get("/", function(req, res) {
-  res.status(200).send({ hello: "world" });
+  res.status(200).send({ hello: "automation" });
 });
